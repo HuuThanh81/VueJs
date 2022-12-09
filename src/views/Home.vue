@@ -1,14 +1,12 @@
 <template>
-  <Demo/>
+    <h1>Trang chủ</h1>
 </template>
 
 <script>
-import Demo from '@/components/Demo.vue'
-
 export default {
-  name: 'HomeView',
-  components: {
-    Demo
-  }
+    name: "Home",
+    setup() {
+        
+    },
 }
 </script>

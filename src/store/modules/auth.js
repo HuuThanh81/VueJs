@@ -4,14 +4,17 @@ import AuthService from '../../apis/modules/auth'
 const state = {};
 const getters ={};
 const mutations = {
-    setcookie(){}
+    setToken(state, token){
+        localStorage.setItem('token', JSON.stringify(token));
+    }
 };
 const actions = {
     async login({commit}, credentials){
         try {
             const response = await AuthService.login(credentials);
-            console.log(response.data);
-            commit('setcookie');
+            if(response.data.result.accessToken){
+                commit('setToken', response.data.result.accessToken);
+            }            
         } catch (error) {
             console.log(error);
         }
